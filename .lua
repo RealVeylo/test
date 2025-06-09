@@ -7,8 +7,8 @@ if getgenv().SenseHubLoader then
 end
 getgenv().SenseHubLoader = true
 
--- Game ID for Grow a Garden
-local GROW_GARDEN_GAME_ID = 126884695634066
+-- Game ID for Blade Ball
+local BLADE_BALL_GAME_ID = 13772394625
 
 -- Load Fluent UI Library
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
@@ -60,37 +60,32 @@ local FF2Button = MainTab:AddButton({
     end
 })
 
--- Grow a Garden Button
-local GrowGardenButton = MainTab:AddButton({
-    Title = "Grow a garden",
-    Description = "Executes the Grow a garden script",
+-- Blade Ball Button
+local BladeBallButton = MainTab:AddButton({
+    Title = "Blade Ball",
+    Description = "Executes the Blade Ball script",
     Callback = function()
         -- Check if user is in the correct game
-        if game.PlaceId ~= GROW_GARDEN_GAME_ID then
-            warn("You are not in grow a garden")
+        if game.PlaceId ~= BLADE_BALL_GAME_ID then
+            warn("You are not in Blade Ball")
             Fluent:Notify({
                 Title = "Wrong Game",
-                Content = "You are not in the Grow a Garden game!",
+                Content = "You are not in the Blade Ball game!",
                 Duration = 5
             })
             return
         end
 
-        -- Execute Grow a Garden script
+        -- Execute Blade Ball script
         Fluent:Notify({
-            Title = "Loading Grow a Garden",
-            Content = "Grow a Garden script is being executed...",
+            Title = "Loading Blade Ball",
+            Content = "Blade Ball script is being executed...",
             Duration = 3
         })
 
-        -- Load and execute the Grow a Garden script
+        -- Load and execute the Blade Ball script
         pcall(function()
-            if readfile and isfile("GrowAGardenFluent.lua") then
-                loadstring(readfile("GrowAGardenFluent.lua"))()
-            else
-                -- Fallback to HTTP if local file not found
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/RealVeylo/gog/refs/heads/main/lua"))()
-            end
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/RealVeylo/bb/refs/heads/main/lua"))()
         end)
     end
 })
