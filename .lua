@@ -18,7 +18,7 @@ local Window = Fluent:CreateWindow({
     Title = "Sense Hub",
     SubTitle = "by Veylo",
     TabWidth = 160,
-    Size = UDim2.fromOffset(400, 250),
+    Size = UDim2.fromOffset(500, 350),
     Acrylic = true,
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl,
@@ -98,7 +98,7 @@ local GrowGardenButton = MainTab:AddButton({
 -- Add info section
 MainTab:AddParagraph({
     Title = "Information",
-    Content = "• FF2: Works in all supported games\n• Grow a Garden: Only works in Grow a Garden game"
+    Content = "• Each game only executes in designated game!"
 })
 
 -- Select the main tab by default
@@ -110,4 +110,3 @@ Fluent:Notify({
     Content = "Loader is ready!",
     Duration = 3
 })
-
